@@ -18,17 +18,14 @@ img{
 li{
     list-style: none;
 }
-/*.........................................loading*/
  .container_loading{
+    position: fixed;
     background-color: rgba(0, 0, 0, 0.315);
     height: 100%;
     width: 100%;
-    position: fixed;
     z-index: 10000;
  }
  .loading{
-    border: 15px solid #ffffff;
-    border-top-color: #f4266a ;
     border-top-style: groove;
     height: 100px;
     width: 100px;
@@ -40,14 +37,17 @@ li{
     right: 0;
     margin: auto;
     animation: animationLoading 1.2s linear infinite;
+    border: 15px solid #ffffff;
+    border-top-color: #f4266a ;
     box-shadow: rgba(158, 155, 155, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgb(248, 7, 7) 0px -3px 5px;
 }
 .content__error{
-    background-color: #ffffff;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #ffffff;
 }
  @keyframes animationLoading{
     from{
