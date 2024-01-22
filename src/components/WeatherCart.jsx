@@ -11,7 +11,7 @@ const WeatherCart = ({weather, temp, setInputValueCountry}) => {
         setInputValueCountry(e.target.inputValueCountry.value.trim());   
         
     }
-    
+
   return (
     <>
         <div className="content__input">
