@@ -9,7 +9,9 @@ const WeatherCart = ({weather, temp, setInputValueCountry}) => {
     const handleSubmit = e => {
         e.preventDefault();
         setInputValueCountry(e.target.inputValueCountry.value.trim());   
+        
     }
+    
   return (
     <>
         <div className="content__input">
@@ -40,7 +42,7 @@ const WeatherCart = ({weather, temp, setInputValueCountry}) => {
                 </div>
             </section>    
             <footer className='weather__footer'>
-            <h2 className='weather__temp'>{ isCelsius ? `${temp?.celsius} ºC` : `${temp?.farenheit} ºF`} {}</h2>
+            <h2 className='weather__temp'>{ isCelsius ? `${(weather?.main.temp-273.15).toFixed(1)} ºC` : `${(((weather?.main.temp-273.15)*9)/5 + 32).toFixed(1)} ºF`} {}</h2>
                 <button className='weather__btn' onClick={handleClickTemp} >Change to {isCelsius ? `ºF` : `ºC`}</button>
             </footer>   
         </article>  

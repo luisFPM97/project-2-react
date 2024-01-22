@@ -46,13 +46,15 @@ function App() {
 
             celsius: +(res.data.main.temp - 273.15).toFixed(1),
             farenheit: +(((res.data.main.temp - 273.15) * 9) / 5 + 32).toFixed(1),
+            
           };
           setTemp(objTemp);
+          console.log(res.data)
         })
         .catch((error) => console.log(error));
     } 
   }, [coords]);
-
+  
   const errorCallback = (error) => {
     setError(`ERROR(${error.code}): ${error.message}`);
   };
@@ -60,9 +62,10 @@ function App() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success, errorCallback);
   }, []);
-
+  
   return (
     <>
+    
       {coords ? (
         <div className="container">
           {weather  ? (
