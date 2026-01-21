@@ -30,6 +30,7 @@ function App() {
       axios.get(url)
       .then((res) =>{
         setWeather(res.data);
+        
       })
         .catch((error) => console.log(error));
     }
@@ -60,6 +61,7 @@ function App() {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success, errorCallback);
+    console.log(weather)
   }, []);
   
   return (
