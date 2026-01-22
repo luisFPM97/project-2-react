@@ -26,11 +26,14 @@ function App() {
 
   useEffect(() => {
     if (inputValueCountry ) {
+      setWeather(null); // Mostrar loading
       const url =  `https://api.openweathermap.org/data/2.5/weather?q=${inputValueCountry}&appid=${api()}&lang=${"es"}`;
       axios.get(url)
       .then((res) =>{
-        setWeather(res.data);
-        
+        // Delay de 2 segundos para apreciar la pantalla de carga
+        setTimeout(() => {
+          setWeather(res.data);
+        }, 2000);
       })
         .catch((error) => console.log(error));
     }
@@ -42,14 +45,15 @@ function App() {
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.long}&appid=${api()}&lang=${"es"}`;
       axios.get(url) 
         .then((res) => {
-          setWeather(res.data); 
-          const objTemp = {
-
-            celsius: +(res.data.main.temp - 273.15).toFixed(1),
-            farenheit: +(((res.data.main.temp - 273.15) * 9) / 5 + 32).toFixed(1),
-            
-          };
-          setTemp(objTemp);
+          // Delay de 2 segundos para apreciar la pantalla de carga
+          setTimeout(() => {
+            setWeather(res.data); 
+            const objTemp = {
+              celsius: +(res.data.main.temp - 273.15).toFixed(1),
+              farenheit: +(((res.data.main.temp - 273.15) * 9) / 5 + 32).toFixed(1),
+            };
+            setTemp(objTemp);
+          }, 2000);
         })
         .catch((error) => console.log(error));
     } 
